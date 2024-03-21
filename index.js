@@ -5,6 +5,12 @@ const app = express()
 const cors = require('cors')
 app.use(cors())
 
+/* 
+    Siempre que express recibe una solicitud HTTP GET, primero verificará si el directorio dist contiene un archivo correspondiente 
+    a la dirección de la solicitud. Si se encuentra un archivo correcto, express lo devolverá.
+*/
+app.use(express.static('dist'))
+
 let notes = [
   {
     id: 1,
